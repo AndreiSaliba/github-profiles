@@ -14,6 +14,19 @@ module.exports = {
                 "light-primary": "#FEFEFE",
                 "light-secondary": "#f0f2f5",
             },
+            fontFamily: {
+                mono: ["Space Mono", "monospace"],
+            },
+            screens: {
+                sm: "580px",
+                xs: "420px",
+            },
+            gridTemplateColumns: {
+                "user-grid": "110px auto",
+            },
+            gridTemplateRows: {
+                "user-grid": "60px 60px fit-content",
+            },
         },
     },
     variants: {

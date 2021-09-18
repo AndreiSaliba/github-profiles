@@ -1,22 +1,21 @@
 import { useState, useEffect, createContext, useContext } from "react";
 
-type Theme = "dark" | "light";
-
 const ThemeContext = createContext(null);
 
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState<Theme>();
+    const [theme, setTheme] = useState<string>();
 
     const toggleTheme = () =>
         theme === "dark" ? setTheme("light") : setTheme("dark");
 
     useEffect(() => {
         setTheme(
-            localStorage.getItem("theme") ??
-                (window.matchMedia &&
-                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            localStorage.getItem("theme")
+                ? localStorage.getItem("theme")
+                : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "dark"
                 : "light"
         );

@@ -14,9 +14,11 @@ const Header = () => {
                 onClick={() => toggleTheme()}
             >
                 {theme === "dark" ? "LIGHT" : "DARK"}
-                <span className="pt-[1px]">
-                    {theme === "dark" ? <IoSunnySharp /> : <IoMoon />}
-                </span>
+                {theme === "dark" ? (
+                    <IoSunnySharp className="pt-[1px]" />
+                ) : (
+                    <IoMoon className="pt-[1px]" />
+                )}
             </button>
         </div>
     );
