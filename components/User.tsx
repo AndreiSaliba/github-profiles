@@ -1,19 +1,20 @@
-import { useUserData } from "@context/User";
 import { MdPlace } from "react-icons/md";
 import { HiLink } from "react-icons/hi";
 import { ImTwitter } from "react-icons/im";
 import { BsBuilding } from "react-icons/bs";
 
-const User = () => {
-    const { user } = useUserData();
+const User = ({ data: user }) => {
     return (
         <>
             {user && (
                 <div className="w-full p-5 mt-5 font-mono rounded-lg bg-light-primary dark:bg-dark-primary dark:text-light-secondary">
                     <div className="grid grid-cols-user-grid grid-rows-user-grid">
                         <img
-                            className="row-span-2 inline object-cover rounded-full w-[110px] h-[110px]"
+                            className="inline object-cover row-span-2 rounded-full"
                             src={user?.avatar_url}
+                            width="110"
+                            height="110"
+                            alt=""
                         />
                         <div className="w-full row-span-1 pr-5 ml-5">
                             <div className="flex flex-col justify-between sm:flex-row">
@@ -21,13 +22,20 @@ const User = () => {
                                     <span className="text-2xl font-bold dark:text-white">
                                         {user?.name}
                                     </span>
-                                    <a href={user?.html_url} target="_blank">
+                                    <a
+                                        href={user?.html_url}
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
                                         <span className="mt-0.5 text-sm text-color-primary">
                                             @{user?.login}
                                         </span>
                                     </a>
                                 </div>
-                                <span className="pt-0 text-sm dark:text-light-secondary sm:pt-1.5">
+                                <span
+                                    className="pt-0 text-sm dark:text-light-secondary sm:pt-1.5"
+                                    suppressHydrationWarning
+                                >
                                     Joined{" "}
                                     {new Date(
                                         user?.created_at
@@ -88,7 +96,11 @@ const User = () => {
                                 )}
 
                                 {user?.blog ? (
-                                    <a href={user?.blog} target="_blank">
+                                    <a
+                                        href={user?.blog}
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
                                         <span className="flex items-center">
                                             <HiLink className="mr-2" />
                                             {user?.blog}
@@ -105,6 +117,7 @@ const User = () => {
                                     <a
                                         href={`https://twitter.com/${user?.twitter_username}`}
                                         target="_blank"
+                                        rel="noopener"
                                     >
                                         <span className="flex items-center">
                                             <ImTwitter className="mr-2" />@

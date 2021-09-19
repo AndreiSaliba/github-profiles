@@ -1,7 +1,10 @@
-import { useState, useEffect, createContext, useContext } from "react";
-import axios from "axios";
+export type Theme = "dark" | "light";
 
-interface User {
+export type UserPageProps = {
+    userData: UserInterface;
+};
+
+interface UserInterface {
     login: string;
     id: number;
     node_id: string;
@@ -35,26 +38,3 @@ interface User {
     created_at: string;
     updated_at: string;
 }
-
-const UserContext = createContext(null);
-
-export const useUserData = () => useContext(UserContext);
-
-export const UserProvider = ({ children }) => {
-    const [user, setUser] = useState<User>(null);
-
-    const getUser = (user: string) => {
-        if (user) {
-            axios
-                .get(`https://api.github.com/users/${user.trim()}`)
-                .then((res) => setUser(res.data))
-                .catch(() => setUser(null));
-        }
-    };
-
-    return (
-        <UserContext.Provider value={{ user, getUser }}>
-            {children}
-        </UserContext.Provider>
-    );
-};

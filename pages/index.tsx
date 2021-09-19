@@ -1,6 +1,5 @@
-import Header from "components/Header";
-import Search from "components/Search";
-import User from "components/User";
+import Header from "@components/Header";
+import Search from "@components/Search";
 
 export const Home = () => {
     return (
@@ -8,7 +7,6 @@ export const Home = () => {
             <div className="box-border w-full max-w-3xl">
                 <Header />
                 <Search />
-                <User />
             </div>
         </div>
     );

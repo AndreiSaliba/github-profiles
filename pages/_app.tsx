@@ -1,24 +1,20 @@
-import { ThemeProvider } from "@context/Theme";
-import { UserProvider } from "@context/User";
 import Head from "next/head";
+import { ThemeProvider } from "@context/Theme";
 import "tailwindcss/tailwind.css";
+import "@styles/styles.css";
 
 function MyApp({ Component, pageProps }) {
     return (
         <ThemeProvider>
-            <UserProvider>
-                <Head>
-                    <title>Github Profiles</title>
-                    <meta
-                        name="viewport"
-                        content="initial-scale=1.0, width=device-width"
-                    />
-                    <link rel="preconnect" href="https://fonts.googleapis.com" />
-                    <link rel="preconnect" href="https://fonts.gstatic.com" />
-                    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" /> 
-                </Head>
-                <Component {...pageProps} />
-            </UserProvider>
+            <Head>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+                <meta name="description" content="Search Github Users" />
+                <title>Github Profiles</title>
+            </Head>
+            <Component {...pageProps} />
         </ThemeProvider>
     );
 }
