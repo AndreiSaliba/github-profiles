@@ -19,7 +19,7 @@ module.exports = {
             },
             screens: {
                 sm: "580px",
-                xs: "420px",
+                xs: "440px",
             },
             gridTemplateColumns: {
                 "user-grid": "110px auto",
