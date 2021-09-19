@@ -1,16 +1,16 @@
 import Header from "@components/Header";
 import Search from "@components/Search";
 import User from "@components/User";
-import { UserPageProps } from "@utils/types";
+import { UserProps } from "@utils/types";
 
-const UserPage = ({ userData }: UserPageProps) => {
+const UserPage: React.FC<UserProps> = ({ userData }) => {
     !userData?.login && console.error(userData);
     return (
         <div className="flex flex-col items-center w-screen h-screen p-2 bg-light-secondary dark:bg-dark-secondary">
             <div className="box-border w-full max-w-3xl">
                 <Header />
                 <Search />
-                {userData?.login && <User data={userData} />}
+                {userData?.login && <User userData={userData} />}
             </div>
         </div>
     );

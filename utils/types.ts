@@ -1,6 +1,6 @@
 export type Theme = "dark" | "light";
 
-export type UserPageProps = {
+export type UserProps = {
     userData: UserInterface;
 };
 

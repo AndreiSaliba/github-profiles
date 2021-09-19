@@ -2,8 +2,9 @@ import { MdPlace } from "react-icons/md";
 import { HiLink } from "react-icons/hi";
 import { ImTwitter } from "react-icons/im";
 import { BsBuilding } from "react-icons/bs";
+import { UserProps } from "@utils/types";
 
-const User = ({ data: user }) => {
+const User: React.FC<UserProps> = ({ userData: user }) => {
     return (
         <>
             {user && (
@@ -25,7 +26,7 @@ const User = ({ data: user }) => {
                                     <a
                                         href={user?.html_url}
                                         target="_blank"
-                                        rel="noopener"
+                                        rel="noopener noreferrer"
                                     >
                                         <span className="mt-0.5 text-sm text-color-primary">
                                             @{user?.login}
@@ -99,7 +100,7 @@ const User = ({ data: user }) => {
                                     <a
                                         href={user?.blog}
                                         target="_blank"
-                                        rel="noopener"
+                                        rel="noopener noreferrer"
                                     >
                                         <span className="flex items-center">
                                             <HiLink className="mr-2" />
@@ -117,7 +118,7 @@ const User = ({ data: user }) => {
                                     <a
                                         href={`https://twitter.com/${user?.twitter_username}`}
                                         target="_blank"
-                                        rel="noopener"
+                                        rel="noopener noreferrer"
                                     >
                                         <span className="flex items-center">
                                             <ImTwitter className="mr-2" />@
