@@ -12,7 +12,7 @@ const User: React.FC<UserProps> = ({ userData: user }) => {
                     <div className="grid grid-cols-user-grid grid-rows-user-grid">
                         <img
                             className="inline object-cover row-span-2 rounded-full"
-                            src={user?.avatar_url}
+                            src={user.avatar_url}
                             width="110"
                             height="110"
                             alt=""
@@ -21,15 +21,15 @@ const User: React.FC<UserProps> = ({ userData: user }) => {
                             <div className="flex flex-col justify-between sm:flex-row">
                                 <div className="flex flex-col">
                                     <span className="text-2xl font-bold dark:text-white">
-                                        {user?.name}
+                                        {user.name}
                                     </span>
                                     <a
-                                        href={user?.html_url}
+                                        href={user.html_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         <span className="mt-0.5 text-sm text-color-primary">
-                                            @{user?.login}
+                                            @{user.login}
                                         </span>
                                     </a>
                                 </div>
@@ -39,7 +39,7 @@ const User: React.FC<UserProps> = ({ userData: user }) => {
                                 >
                                     Joined{" "}
                                     {new Date(
-                                        user?.created_at
+                                        user.created_at
                                     ).toLocaleDateString("en-UK", {
                                         year: "numeric",
                                         month: "long",
@@ -50,33 +50,33 @@ const User: React.FC<UserProps> = ({ userData: user }) => {
                         </div>
                         <div className="grid items-end row-start-3 mt-4 sm:mt-3 sm:row-start-2 sm:ml-5 col-span-full sm:col-start-2">
                             <span>
-                                {user?.bio ?? "This profile has no bio."}
+                                {user.bio ?? "This profile has no bio."}
                             </span>
                             <div className="flex items-center justify-around w-full h-24 p-3 mt-5 rounded-lg bg-light-secondary dark:bg-dark-secondary">
                                 <div className="flex flex-col">
                                     <span>Repos</span>
                                     <span className="text-2xl font-bold">
-                                        {user?.public_repos}
+                                        {user.public_repos}
                                     </span>
                                 </div>
                                 <div className="flex flex-col">
                                     <span>Followers</span>
                                     <span className="text-2xl font-bold">
-                                        {user?.followers}
+                                        {user.followers}
                                     </span>
                                 </div>
                                 <div className="flex flex-col">
                                     <span>Following</span>
                                     <span className="text-2xl font-bold">
-                                        {user?.following}
+                                        {user.following}
                                     </span>
                                 </div>
                             </div>
                             <div className="grid gap-2 mt-4 text-sm xs:grid-cols-2">
-                                {user?.location ? (
+                                {user.location ? (
                                     <span className="flex items-center">
                                         <MdPlace className="mr-2" />
-                                        {user?.location}
+                                        {user.location}
                                     </span>
                                 ) : (
                                     <span className="flex items-center opacity-60">
@@ -84,10 +84,10 @@ const User: React.FC<UserProps> = ({ userData: user }) => {
                                         {"Not Available"}
                                     </span>
                                 )}
-                                {user?.company ? (
+                                {user.company ? (
                                     <span className="flex items-center">
                                         <BsBuilding className="mr-2" />
-                                        {user?.company}
+                                        {user.company}
                                     </span>
                                 ) : (
                                     <span className="flex items-center opacity-60">
@@ -96,15 +96,15 @@ const User: React.FC<UserProps> = ({ userData: user }) => {
                                     </span>
                                 )}
 
-                                {user?.blog ? (
+                                {user.blog ? (
                                     <a
-                                        href={user?.blog}
+                                        href={user.blog}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         <span className="flex items-center">
                                             <HiLink className="mr-2" />
-                                            {user?.blog}
+                                            {user.blog}
                                         </span>
                                     </a>
                                 ) : (
@@ -114,15 +114,15 @@ const User: React.FC<UserProps> = ({ userData: user }) => {
                                     </span>
                                 )}
 
-                                {user?.twitter_username ? (
+                                {user.twitter_username ? (
                                     <a
-                                        href={`https://twitter.com/${user?.twitter_username}`}
+                                        href={`https://twitter.com/${user.twitter_username}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         <span className="flex items-center">
                                             <ImTwitter className="mr-2" />@
-                                            {user?.twitter_username}
+                                            {user.twitter_username}
                                         </span>
                                     </a>
                                 ) : (
