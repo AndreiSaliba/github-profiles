@@ -15,6 +15,11 @@ export const Search = () => {
                     type="text"
                     placeholder="Search GitHub username..."
                     onInput={(e) => setSearchInput(e.currentTarget.value)}
+                    onKeyUp={(e) => {
+                        e.key === "Enter" &&
+                            searchInput &&
+                            router.push(`/${searchInput.replaceAll(" ", "")}`);
+                    }}
                     value={searchInput}
                 />
             </div>
