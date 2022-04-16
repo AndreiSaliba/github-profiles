@@ -1,6 +1,5 @@
 module.exports = {
-    mode: "jit",
-    purge: [
+    content: [
         "./pages/**/*.{js,ts,jsx,tsx}",
         "./components/**/*.{js,ts,jsx,tsx}",
     ],
@@ -28,9 +27,6 @@ module.exports = {
                 "user-grid": "60px 60px fit-content",
             },
         },
-    },
-    variants: {
-        extend: {},
     },
     plugins: [],
 };
